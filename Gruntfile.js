@@ -11,27 +11,28 @@ module.exports = function(grunt) {
           'css/style.css': 'sass/style.sass'
         }
       }
-    }
-imagemin: {
-    dynamic: {
+    },
+
+    imagemin: {
+      dynamic: {
         files: [{
             expand: true,
             cwd: 'images/',
             src: ['**/*.{png,jpg,gif}'],
             dest: 'images/build/'
         }]
-    }
-}
-
-watch: {
-    scripts: {
+      }
+    },
+    
+    watch: {
+      scripts: {
         files: ['sass/*.sass'],
         tasks: ['sass'],
         options: {
             spawn: false,
-        },
+        }
+      }
     }
-}
 
   });
   // Load the plugins tasks
@@ -39,6 +40,6 @@ watch: {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-watch');
   // Default task(s).
-  grunt.registerTask('default', ['sass' 'imagemin' 'watch']);
+  grunt.registerTask('default', ['sass', 'imagemin', 'watch']);
 
 };
